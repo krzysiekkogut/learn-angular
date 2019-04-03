@@ -13,6 +13,7 @@
 <ng-template #noServer><p>No server was created.</p></ng-template>
 <app-server *ngFor="let server of servers"></app-server>
 
+<hr />
 <label>User name</label>
 <input type="text" class="form-control" [(ngModel)]="userName" />
 <p>{{ userName }}</p>
@@ -23,3 +24,17 @@
 >
   Reset user name
 </button>
+
+<hr />
+<button class="btn btn-primary" (click)="onToggleDetails()">
+  {{ showDetails ? 'Hide' : 'Show' }} password
+</button>
+<p [hidden]="!showDetails">Secret password = tuna</p>
+<ul>
+  <li
+    *ngFor="let click of clicks; let i = index"
+    [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
+  >
+    <span [ngClass]="{ white: i >= 4 }">{{ click }}</span>
+  </li>
+</ul>

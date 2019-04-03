@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverName = '';
-  userName = '';
   serverCreated = false;
   servers = ['Server 1', 'Server 2'];
+
+  userName = '';
+  showDetails = false;
+  clicks: string[] = [];
 
   constructor() {
     setTimeout(() => {
@@ -28,5 +31,10 @@ export class ServersComponent implements OnInit {
 
   onResetUserName() {
     this.userName = '';
+  }
+
+  onToggleDetails() {
+    this.showDetails = !this.showDetails;
+    this.clicks.push(`Click: ${new Date().toTimeString()}`);
   }
 }
