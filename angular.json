@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-tutorial": {
+    "recipes": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-tutorial",
+            "outputPath": "dist/recipes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,18 +60,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-tutorial:build"
+            "browserTarget": "recipes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-tutorial:build:production"
+              "browserTarget": "recipes:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-tutorial:build"
+            "browserTarget": "recipes:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "angular-tutorial-e2e": {
+    "recipes-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -104,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-tutorial:serve"
+            "devServerTarget": "recipes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-tutorial:serve:production"
+              "devServerTarget": "recipes:serve:production"
             }
           }
         },
@@ -122,5 +122,5 @@
       }
     }
   },
-  "defaultProject": "angular-tutorial"
+  "defaultProject": "recipes"
 }
