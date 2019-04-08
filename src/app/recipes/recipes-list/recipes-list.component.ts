@@ -12,6 +12,11 @@ export class RecipesListComponent {
       'First recipe',
       'It\'s only a test',
       'https://s0.dziennik.pl/pliki/10420000/10420181-tofu-900-554.jpg'
+    ),
+    new Recipe(
+      'Second recipe',
+      'It\'s only a test',
+      'https://s0.dziennik.pl/pliki/10420000/10420181-tofu-900-554.jpg'
     )
   ];
 }
