@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Recipe } from '../models';
 
 @Component({
@@ -6,7 +6,7 @@ import { Recipe } from '../models';
   templateUrl: './recipes-list.component.html',
   styleUrls: ['./recipes-list.component.scss']
 })
-export class RecipesListComponent implements OnInit {
+export class RecipesListComponent {
   public recipes: Recipe[] = [
     new Recipe(
       'First recipe',
@@ -14,8 +14,4 @@ export class RecipesListComponent implements OnInit {
       'https://s0.dziennik.pl/pliki/10420000/10420181-tofu-900-554.jpg'
     )
   ];
-
-  constructor() {}
-
-  ngOnInit() {}
 }
