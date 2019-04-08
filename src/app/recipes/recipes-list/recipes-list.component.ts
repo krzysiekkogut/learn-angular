@@ -9,7 +9,7 @@ import { Recipe } from '../models';
 export class RecipesListComponent {
   @Output() selectedRecipeChanged = new EventEmitter<Recipe>();
 
-  public recipes: Recipe[] = [
+  recipes: Recipe[] = [
     new Recipe(
       'First recipe',
       'It\'s only a test',
