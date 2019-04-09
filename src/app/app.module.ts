@@ -5,10 +5,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListModule } from './shopping-list/shoppping-list.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
-  imports: [BrowserModule, ShoppingListModule, RecipesModule],
+  imports: [BrowserModule, SharedModule, ShoppingListModule, RecipesModule],
   providers: [],
   bootstrap: [AppComponent]
 })
