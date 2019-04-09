@@ -1,3 +1,4 @@
+import { RecipesService } from './recipes.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesComponent } from './recipes.component';
@@ -15,6 +16,6 @@ import { SharedModule } from './../shared/shared.module';
   ],
   imports: [CommonModule, SharedModule],
   exports: [RecipesComponent],
-  providers: []
+  providers: [RecipesService]
 })
 export class RecipesModule {}
