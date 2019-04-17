@@ -1,3 +1,7 @@
 {
+  "firebase": {
+    "apiKey": "xxx_111",
+    "authDomain": "<YOURNAME>.firebaseapp.com"
+  },
   "backend": "https://<YOURNAME>.firebaseio.com"
 }

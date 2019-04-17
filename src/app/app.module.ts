@@ -1,4 +1,6 @@
+import { AuthService } from './auth/auth.service';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,10 +13,17 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { DataStorageService } from './shared/data-storage.service';
 import { SingupComponent } from './auth/singup/singup.component';
+import { SinginComponent } from './auth/singin/singin.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SingupComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SingupComponent,
+    SinginComponent
+  ],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     SharedModule,
@@ -22,7 +31,7 @@ import { SingupComponent } from './auth/singup/singup.component';
     RecipesModule,
     AppRoutingModule
   ],
-  providers: [DataStorageService],
+  providers: [DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
