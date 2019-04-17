@@ -36,7 +36,7 @@ export class AuthService {
 
   logout() {
     return from(auth().signOut()).subscribe(() =>
-      this.router.navigate(['/signin'])
+      this.router.navigate(['/auth/signin'])
     );
   }
 }

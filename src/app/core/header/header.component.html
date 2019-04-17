@@ -13,8 +13,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <ng-container *ngIf="!isAuthenticated">
-          <li routerLinkActive="active"><a routerLink="/signin">Sign In</a></li>
-          <li routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
+          <li routerLinkActive="active">
+            <a routerLink="/auth/signin">Sign In</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/auth/signup">Sign Up</a>
+          </li>
         </ng-container>
 
         <ng-container *ngIf="isAuthenticated">

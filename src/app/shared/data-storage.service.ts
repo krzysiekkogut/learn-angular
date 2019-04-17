@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
-import { AuthService } from './../auth/auth.service';
-import { RecipesService } from '../recipes/recipes.service';
 import { Recipe } from '../recipes/models';
+import { RecipesService } from '../recipes/recipes.service';
+import { AuthService } from './../auth/auth.service';
 
 import { backend } from '../config.json';
 

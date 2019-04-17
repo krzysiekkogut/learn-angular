@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { SingupComponent } from './auth/singup/singup.component';
-import { SinginComponent } from './auth/singin/singin.component';
+import { HomeComponent } from './core/home/home.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
-  { path: 'shopping-list', component: ShoppingListComponent },
-  { path: 'signup', component: SingupComponent },
-  { path: 'signin', component: SinginComponent }
+  { path: '', component: HomeComponent },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+  {
+    path: 'recipes',
+    loadChildren: './recipes/recipes.module#RecipesModule',
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'shopping-list',
+    loadChildren: './shopping-list/shopping-list.module#ShoppingListModule',
+    canLoad: [AuthGuard]
+  }
 ];
 
 @NgModule({
