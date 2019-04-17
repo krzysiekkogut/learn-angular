@@ -1,10 +1,14 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { auth, initializeApp } from 'firebase';
 import { from } from 'rxjs';
 
 import { firebase as firebaseConfig } from '../config.json';
 
+@Injectable()
 export class AuthService {
-  get;
+  constructor(private router: Router) {}
+
   initFirebaseAuth() {
     initializeApp({ ...firebaseConfig });
   }
@@ -18,7 +22,7 @@ export class AuthService {
   signinUser(email: string, password: string) {
     auth()
       .signInWithEmailAndPassword(email, password)
-      .then(r => console.log(r))
+      .then(() => this.router.navigate(['/']))
       .catch(error => console.log(error));
   }
 
@@ -31,6 +35,8 @@ export class AuthService {
   }
 
   logout() {
-    return from(auth().signOut());
+    return from(auth().signOut()).subscribe(() =>
+      this.router.navigate(['/signin'])
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +32,7 @@ import { SinginComponent } from './auth/singin/singin.component';
     RecipesModule,
     AppRoutingModule
   ],
-  providers: [DataStorageService, AuthService],
+  providers: [DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
