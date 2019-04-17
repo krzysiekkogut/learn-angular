@@ -29,4 +29,8 @@ export class AuthService {
   isAuthenticated() {
     return auth().currentUser !== null;
   }
+
+  logout() {
+    return from(auth().signOut());
+  }
 }
