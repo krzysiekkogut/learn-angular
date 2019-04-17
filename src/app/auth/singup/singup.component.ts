@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
@@ -7,10 +7,8 @@ import { AuthService } from '../auth.service';
   templateUrl: './singup.component.html',
   styleUrls: ['./singup.component.scss']
 })
-export class SingupComponent implements OnInit {
+export class SingupComponent {
   constructor(private authService: AuthService) {}
-
-  ngOnInit() {}
 
   onSignup(form: NgForm) {
     const { email, password } = form.value;
