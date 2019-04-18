@@ -23,7 +23,9 @@ export class HeaderComponent implements OnDestroy {
 
   onSaveData() {
     this.subscription.add(
-      this.dataStorageService.storeRecipes().subscribe(r => console.log(r))
+      this.dataStorageService
+        .storeRecipes()
+        .subscribe(() => console.log('Data saved.'))
     );
   }
 
