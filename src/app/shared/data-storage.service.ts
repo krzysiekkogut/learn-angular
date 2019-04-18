@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
@@ -21,8 +21,11 @@ export class DataStorageService {
     return this.authService.getAuthToken().pipe(
       mergeMap(token => {
         return this.http.put<Recipe[]>(
-          `${backend}/recipes.json?auth=${token}`,
-          this.recipesService.getRecipes()
+          `${backend}/recipes.json`,
+          this.recipesService.getRecipes(),
+          {
+            params: new HttpParams().append('auth', token)
+          }
         );
       })
     );
@@ -31,7 +34,9 @@ export class DataStorageService {
   fetchRecipes() {
     return this.authService.getAuthToken().subscribe(token => {
       this.http
-        .get<Recipe[]>(`${backend}/recipes.json?auth=${token}`)
+        .get<Recipe[]>(`${backend}/recipes.json`, {
+          params: new HttpParams().append('auth', token)
+        })
         .pipe(
           map(recipes => {
             for (const recipe of recipes) {
