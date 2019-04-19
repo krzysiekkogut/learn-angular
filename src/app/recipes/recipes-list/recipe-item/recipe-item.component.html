@@ -2,6 +2,10 @@
   class="list-group-item clearfix"
   [routerLink]="['/recipes', index]"
   routerLinkActive="active"
+  [@hover]="hoverState"
+  [@visible]
+  (mouseover)="onMouseOver()"
+  (mouseleave)="onMouseLeave()"
 >
   <div class="col-xs-8">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>

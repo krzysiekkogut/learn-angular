@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth/auth.guard';
 
 import { HomeComponent } from './core/home/home.component';
 
@@ -9,13 +8,11 @@ const appRoutes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   {
     path: 'recipes',
-    loadChildren: './recipes/recipes.module#RecipesModule',
-    canLoad: [AuthGuard]
+    loadChildren: './recipes/recipes.module#RecipesModule'
   },
   {
     path: 'shopping-list',
-    loadChildren: './shopping-list/shopping-list.module#ShoppingListModule',
-    canLoad: [AuthGuard]
+    loadChildren: './shopping-list/shopping-list.module#ShoppingListModule'
   }
 ];
 
