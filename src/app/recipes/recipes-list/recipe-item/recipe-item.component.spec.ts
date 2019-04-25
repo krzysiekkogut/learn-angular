@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { Recipe } from '../../models';
+import { Recipe } from './../../models';
 import { RecipeItemComponent } from './recipe-item.component';
 
 describe('Component: Recipe Item', () => {

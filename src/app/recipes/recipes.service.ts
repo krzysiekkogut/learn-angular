@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 
-import { Ingredient } from '../shared/models';
+import { Ingredient } from './../shared/models';
 import { Recipe } from './models';
 
 export class RecipesService {

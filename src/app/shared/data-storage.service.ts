@@ -2,11 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { Recipe } from '../recipes/models';
-import { RecipesService } from '../recipes/recipes.service';
-
-import { backend } from '../config.json';
+import { Recipe } from './../recipes/models';
+import { RecipesService } from './../recipes/recipes.service';
+import { backend } from './../config.json';
 
 @Injectable()
 export class DataStorageService {

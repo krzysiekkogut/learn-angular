@@ -7,8 +7,7 @@ import {
   trigger
 } from '@angular/animations';
 import { Component, Input } from '@angular/core';
-
-import { Recipe } from '../../models';
+import { Recipe } from './../../models';
 
 @Component({
   selector: 'app-recipe-item',

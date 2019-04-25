@@ -3,14 +3,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { firebase as firebaseConfig } from './config.json';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-
-import { StoreModule } from '@ngrx/store';
-import { firebase as firebaseConfig } from './config.json';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
+import { reducers } from './store/app.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +21,7 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     AngularFireAuthModule,
     SharedModule,
     CoreModule,
-    StoreModule.forRoot({ shoppingList: shoppingListReducer })
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

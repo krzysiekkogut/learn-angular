@@ -2,9 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-
-import { CoreModule } from '../core/core.module';
-import { Recipe } from '../recipes/models';
+import { CoreModule } from './../core/core.module';
+import { Recipe } from './../recipes/models';
 import { RecipesService } from './../recipes/recipes.service';
 import { DataStorageService } from './data-storage.service';
 

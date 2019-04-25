@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
-import { AuthGuard } from '../auth/auth.guard';
-import { AuthService } from '../auth/auth.service';
-import { RecipesService } from '../recipes/recipes.service';
-import { DataStorageService } from '../shared/data-storage.service';
 import { AppRoutingModule } from './../app.routing-module';
+import { AuthGuard } from './../auth/auth.guard';
 import { AuthInterceptor } from './../auth/auth.interceptor';
+import { AuthService } from './../auth/auth.service';
+import { RecipesService } from './../recipes/recipes.service';
+import { DataStorageService } from './../shared/data-storage.service';
 import { SharedModule } from './../shared/shared.module';
 import { HeaderComponent } from './/header/header.component';
 import { HomeComponent } from './home/home.component';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Recipe } from '../models';
+import { Recipe } from './../models';
 import { RecipesService } from './../recipes.service';
 
 @Component({
@@ -60,7 +60,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate(['./../'], { relativeTo: this.route });
   }
 
   private initForm() {
