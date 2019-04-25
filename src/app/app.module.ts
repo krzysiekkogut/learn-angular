@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+import { StoreModule } from '@ngrx/store';
 import { firebase as firebaseConfig } from './config.json';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,8 @@ import { firebase as firebaseConfig } from './config.json';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({ shoppingList: shoppingListReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

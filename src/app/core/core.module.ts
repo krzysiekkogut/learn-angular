@@ -6,7 +6,6 @@ import { AuthGuard } from '../auth/auth.guard';
 import { AuthService } from '../auth/auth.service';
 import { RecipesService } from '../recipes/recipes.service';
 import { DataStorageService } from '../shared/data-storage.service';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { AppRoutingModule } from './../app.routing-module';
 import { AuthInterceptor } from './../auth/auth.interceptor';
 import { SharedModule } from './../shared/shared.module';
@@ -24,8 +23,7 @@ import { LoggingInterceptor } from './logging/logging.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
     DataStorageService,
-    RecipesService,
-    ShoppingListService
+    RecipesService
   ]
 })
 export class CoreModule {}
