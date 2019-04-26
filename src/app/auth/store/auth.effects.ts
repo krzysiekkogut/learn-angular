@@ -10,7 +10,7 @@ import * as AuthActions from './auth.actions';
 @Injectable()
 export class AuthEffects {
   @Effect()
-  authSingnup: Observable<AuthActions.AuthActions> = this.actions.pipe(
+  authSignup: Observable<AuthActions.AuthActions> = this.actions.pipe(
     ofType(AuthActions.TRY_SIGNUP),
     map(action => action.payload),
     switchMap(({ email, password }) =>
@@ -19,7 +19,7 @@ export class AuthEffects {
     switchMap(() => from(this.getUserToken())),
     mergeMap(token => {
       this.router.navigate(['/']);
-      return [new AuthActions.SetToken(token), new AuthActions.Singup()];
+      return [new AuthActions.SetToken(token), new AuthActions.Signup()];
     })
   );
 
@@ -33,7 +33,7 @@ export class AuthEffects {
     switchMap(() => from(this.getUserToken())),
     mergeMap(token => {
       this.router.navigate(['/']);
-      return [new AuthActions.SetToken(token), new AuthActions.Singin()];
+      return [new AuthActions.SetToken(token), new AuthActions.Signin()];
     })
   );
 

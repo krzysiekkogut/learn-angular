@@ -17,11 +17,11 @@ export class TrySignin implements Action {
   constructor(public payload: { email: string; password: string }) {}
 }
 
-export class Singup implements Action {
+export class Signup implements Action {
   readonly type = SIGNUP;
 }
 
-export class Singin implements Action {
+export class Signin implements Action {
   readonly type = SIGNIN;
 }
 
@@ -37,7 +37,7 @@ export class SetToken implements Action {
 export type AuthActions =
   | TrySignup
   | TrySignin
-  | Singup
-  | Singin
+  | Signup
+  | Signin
   | Logout
   | SetToken;

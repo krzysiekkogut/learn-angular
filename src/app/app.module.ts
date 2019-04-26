@@ -9,11 +9,10 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
-import { AuthEffects } from './auth/store/auth.effects';
 import { firebase as firebaseConfig } from './config.json';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { reducers } from './store/app.reducers';
+import { initialReducerMap, initialState } from './store/app.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,8 +25,8 @@ import { reducers } from './store/app.reducers';
     AngularFireAuthModule,
     SharedModule,
     CoreModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot(initialReducerMap, { initialState }),
+    EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],

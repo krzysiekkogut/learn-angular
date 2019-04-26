@@ -1,10 +1,11 @@
 import * as AuthActions from './auth.actions';
-export interface State {
+
+export interface AuthState {
   token: string;
   authenticated: boolean;
 }
 
-const initialState: State = {
+export const initialState: AuthState = {
   token: null,
   authenticated: false
 };
@@ -12,7 +13,7 @@ const initialState: State = {
 export function authReducer(
   state = initialState,
   action: AuthActions.AuthActions
-): State {
+): AuthState {
   switch (action.type) {
     case AuthActions.SIGNUP:
     case AuthActions.SIGNIN:

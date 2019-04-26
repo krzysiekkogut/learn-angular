@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { AppState } from 'src/app/store/app.reducers';
+import * as RecipesActions from '../store/recipes.actions';
+import { RecipesState } from '../store/recipes.reducers';
 import * as ShoppingListActions from './../../shopping-list/store/shopping-list.actions';
-import { AppState } from './../../store/app.reducers';
-import { Recipe } from './../models';
-import { RecipesService } from './../recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -12,11 +14,10 @@ import { RecipesService } from './../recipes.service';
   styleUrls: ['./recipe-details.component.scss']
 })
 export class RecipeDetailsComponent implements OnInit {
-  recipe: Recipe;
+  recipesState: Observable<RecipesState>;
   id: number;
 
   constructor(
-    private recipesService: RecipesService,
     private route: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
@@ -25,18 +26,25 @@ export class RecipeDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = parseInt(params.id, 10);
-      this.recipe = this.recipesService.getRecipe(this.id);
+      this.recipesState = this.store.select('recipes');
     });
   }
 
   onAddToShoppingList() {
-    this.store.dispatch(
-      new ShoppingListActions.AddIngredients(this.recipe.ingredients)
-    );
+    this.store
+      .select('recipes')
+      .pipe(take(1))
+      .subscribe(recipeState => {
+        this.store.dispatch(
+          new ShoppingListActions.AddIngredients(
+            recipeState.recipes[this.id].ingredients
+          )
+        );
+      });
   }
 
   onDeleteRecipe() {
-    this.recipesService.deleteRecipe(this.id);
+    this.store.dispatch(new RecipesActions.DeleteRecipe(this.id));
     this.router.navigate(['/recipes']);
   }
 }

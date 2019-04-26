@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.reducers';
-import * as AuthActions from './../store/auth.actions';
+import * as AuthActions from '../store/auth.actions';
+import { AppState } from './../../store/app.reducers';
 
 @Component({
-  selector: 'app-singin',
-  templateUrl: './singin.component.html',
-  styleUrls: ['./singin.component.scss']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.scss']
 })
-export class SinginComponent {
+export class SigninComponent {
   constructor(private store: Store<AppState>) {}
 
   onSignin(form: NgForm) {
