@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './../app.routing-module';
 import { AuthGuard } from './../auth/auth.guard';
 import { AuthInterceptor } from './../auth/auth.interceptor';
-import { AuthService } from './../auth/auth.service';
 import { RecipesService } from './../recipes/recipes.service';
 import { DataStorageService } from './../shared/data-storage.service';
 import { SharedModule } from './../shared/shared.module';
@@ -17,7 +16,6 @@ import { LoggingInterceptor } from './logging/logging.interceptor';
   imports: [CommonModule, HttpClientModule, SharedModule, AppRoutingModule],
   exports: [AppRoutingModule, HeaderComponent],
   providers: [
-    AuthService,
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },

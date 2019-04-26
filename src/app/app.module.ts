@@ -3,8 +3,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { AuthEffects } from './auth/store/auth.effects';
 import { firebase as firebaseConfig } from './config.json';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -21,7 +23,8 @@ import { reducers } from './store/app.reducers';
     AngularFireAuthModule,
     SharedModule,
     CoreModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

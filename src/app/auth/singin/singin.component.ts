@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './../auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducers';
+import * as AuthActions from './../store/auth.actions';
 
 @Component({
   selector: 'app-singin',
@@ -8,10 +10,9 @@ import { AuthService } from './../auth.service';
   styleUrls: ['./singin.component.scss']
 })
 export class SinginComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private store: Store<AppState>) {}
 
   onSignin(form: NgForm) {
-    const { email, password } = form.value;
-    this.authService.signinUser(email, password);
+    this.store.dispatch(new AuthActions.TrySignin(form.value));
   }
 }

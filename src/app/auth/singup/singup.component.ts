@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './../auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.reducers';
+import * as AuthActions from '../store/auth.actions';
 
 @Component({
   selector: 'app-singup',
@@ -8,10 +10,9 @@ import { AuthService } from './../auth.service';
   styleUrls: ['./singup.component.scss']
 })
 export class SingupComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private store: Store<AppState>) {}
 
   onSignup(form: NgForm) {
-    const { email, password } = form.value;
-    this.authService.signupUser(email, password);
+    this.store.dispatch(new AuthActions.TrySignup(form.value));
   }
 }
